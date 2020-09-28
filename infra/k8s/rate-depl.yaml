@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rate-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rate
+  template:
+    metadata:
+      labels:
+        app: rate
+    spec:
+      containers:
+        - name: rate
+          image: darionahuel/rate
+          env:
+            - name: FIXER_BASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: fixer-base-url
+                  key: fixer-base-url
+            - name: FIXER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: fixer-api-key
+                  key: fixer-api-key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rate-srv
+spec:
+  selector:
+    app: rate
+  ports:
+    - name: rate
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

@@ -1,0 +1,58 @@
+get:
+  tags:
+    - 'rate'
+  summary: 'Get rates'
+  description: 'Get all rates'
+  produces:
+    - 'application/json'
+  responses:
+    200:
+      description: 'successful operation'
+      schema:
+        type: 'array'
+        items:
+          $ref: ../Models/Rate.get.yaml
+        example:
+          - provider: fixer
+            pair: EURUSD
+            rate: 1.16342
+            fee_percent: 10
+            fee_amount: 0.116342
+            fee_mark_up: 1.2797619999999998
+          - provider: fixer
+            pair: USDEUR
+            rate: 1.16342
+            fee_percent: 10
+            fee_amount: 0.116342
+            fee_mark_up: 1.2797619999999998
+post:
+  tags:
+    - 'rate'
+  summary: 'Create rate'
+  description: 'Create a new rate'
+  produces:
+    - 'application/json'
+  parameters:
+    - in: 'body'
+      name: 'body'
+      description: 'Created rate object'
+      required: true
+      schema:
+        $ref: ../Models/Rate.post.yaml
+        example:
+          provider: fixer
+          pair: EURUSD
+          rate: 1.16342
+          fee_percent: 10
+  responses:
+    201:
+      description: 'successful operation'
+      schema:
+        $ref: ../Models/Rate.get.yaml
+        example:
+          provider: fixer
+          pair: EURUSD
+          rate: 1.16342
+          fee_percent: 10
+          fee_amount: 0.116342
+          fee_mark_up: 1.2797619999999998

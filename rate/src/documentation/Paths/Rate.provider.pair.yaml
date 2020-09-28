@@ -1,0 +1,25 @@
+get:
+  tags:
+    - 'rate'
+  summary: 'Get rate by pair'
+  description: 'Get rate by pair'
+  produces:
+    - 'application/json'
+  responses:
+    200:
+      description: 'successful operation'
+      schema:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            base:
+              type: 'string'
+            dest:
+              type: 'string'
+            rate:
+              type: 'float'
+        example:
+          - base: EUR
+            dest: USD
+            rate: 1.16342

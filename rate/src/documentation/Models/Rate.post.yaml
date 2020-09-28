@@ -1,0 +1,10 @@
+type: 'object'
+properties:
+  provider:
+    type: 'string'
+  pair:
+    type: 'string'
+  fee_percent:
+    type: 'float'
+  rate:
+    type: 'float'

@@ -1,0 +1,18 @@
+put:
+  tags:
+    - 'rate'
+  summary: 'Roster the rates from Fixer'
+  description: ''
+  produces:
+    - 'application/json'
+  parameters:
+    - name: 'provider'
+      in: 'path'
+      description: 'provider to run the roster'
+      required: true
+      type: 'string'
+  responses:
+    201:
+      description: 'The roster was successfully'
+    404:
+      description: 'Not Found'

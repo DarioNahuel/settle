@@ -1,0 +1,12 @@
+name: tests-rate
+on:
+  pull_request:
+    paths:
+      - 'rate/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd rate && npm install && npm run test:ci

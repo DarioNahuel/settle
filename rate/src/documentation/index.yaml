@@ -1,0 +1,15 @@
+swagger: '2.0'
+basePath: '/'
+info:
+  title: 'Settle Swagger'
+  version: '1.0.0'
+tags:
+  - name: 'rate'
+    description: 'Operations about rate'
+paths:
+  /api/rates:
+    $ref: ./Paths/Rate.yaml
+  /api/rates/:provider/roster:
+    $ref: ./Paths/Rate.provider.roster.yaml
+  /api/rates/:provider/:pair:
+    $ref: ./Paths/Rate.provider.pair.yaml
